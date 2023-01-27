@@ -1,0 +1,24 @@
+    // 1. Syntax
+    syntax = "proto3";
+    // 2. proto package
+    package services;
+    //** Option for specific package for golang
+    option go_package = "./services";
+
+    // 3. Service Name
+    service Foobar {
+        rpc FooApi(FooRequest) returns(FooResponse);
+    }
+
+    // 4. Message
+    // Coding use field name and protobuf use tag
+    // tag value 1 - 536870911
+    // tag reserved by google --> 19000 - 19999
+    message FooRequest{
+        string fooname = 1;
+        int32 fooage = 2;
+    }
+
+    message FooResponse{
+        string result = 1; 
+    }
